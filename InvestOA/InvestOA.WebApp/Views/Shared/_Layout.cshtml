@@ -1,44 +1,79 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - InvestOA.WebApp</title>
+    <title>Inve$tOA: @ViewData["Title"]</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/InvestOA.WebApp.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">InvestOA.WebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
+     <nav class="navbar navbar-expand-md navbar-light bg-light border navbar-toggleable-sm box-shadow mb-3">
+        @if (SignInManager.IsSignedIn(User)){
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><span class="blue">I</span><span class="red">n</span><span class="yellow">v</span><span class="blue">e</span><span class="green">$</span><span class="yellow">t</span> <span class="red">OA</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        }
+        else{
+            <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Login"><span class="blue">I</span><span class="red">n</span><span class="yellow">v</span><span class="blue">e</span><span class="green">$</span><span class="yellow">t</span> <span class="red">OA</span></a>
+            <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        }
+        <div class="collapse navbar-collapse" id="navbar">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <ul class="navbar-nav mr-auto mt-2">
+                    <li class="nav-item">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">Quote</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Buy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Sell</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">History</a>
+                    </li>
+                </ul>   
+                <ul class="navbar-nav ml-auto mt-2">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Log Out</a>
+                    </li>
+                </ul>
+            }
+            else
+            {
+                <ul class="navbar-nav ml-auto mt-2">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Auth" asp-action="Login">Log In</a>
+                    </li>
+                </ul>
+            }
+        </div>
+    </nav>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="small text-center text-muted">
         <div class="container">
             &copy; 2022 - InvestOA.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a>.
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
