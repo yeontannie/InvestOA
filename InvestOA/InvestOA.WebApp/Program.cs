@@ -1,5 +1,8 @@
+using FluentValidation.AspNetCore;
 using InvestOA.WebApp.Data;
 using InvestOA.WebApp.Models;
+using InvestOA.WebApp.Models.Validators;
+using InvestOA.WebApp.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +24,14 @@ try
         .AddEntityFrameworkStores<AppDbContext>()
         .AddDefaultTokenProviders();
 
+    builder.Services.AddControllersWithViews();
+
+    //FluentValidation
+    builder.Services.AddMvc()
+        .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<RegisterRequestValidator>());
+
+    builder.Services.AddTransient<EmailService>();
+
     var app = builder.Build();
 
     // Configure the HTTP request pipeline.
@@ -36,6 +47,7 @@ try
 
     app.UseRouting();
 
+    app.UseAuthentication();
     app.UseAuthorization();
 
     app.MapControllerRoute(

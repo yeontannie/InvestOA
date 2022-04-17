@@ -1,20 +1,22 @@
-﻿@{
+﻿@model InvestOA.WebApp.Models.Requests.RegisterRequest
+
+@{
     ViewData["Title"] = "Register";
 }
 
 <form asp-controller="Auth" asp-action="RegisterUser" method="post">
     <div class="form-group">
-        <input id="email"  autocomplete="off" autofocus class="form-control" name="email"
+        <input id="email" asp-for="Email"  autocomplete="off" autofocus class="form-control" name="email"
         placeholder="Email" type="text" onkeyup="namecheck();">
         <p id="validy"></p>
     </div>
     <div class="form-group">
-        <input class="form-control" name="password" placeholder="Password" type="password">
+        <input class="form-control" asp-for="Password" name="password" placeholder="Password" type="password">
     </div>
     <div class="form-group">
-        <input class="form-control" name="confirmation" placeholder="Confirmation" type="password">
+        <input class="form-control" asp-for="Confirmation" id="confirmation" placeholder="Confirmation" type="password">
     </div>
-    <button class="btn btn-primary" style="margin-top: 1%" type="submit">Register</button>
+        <button class="btn btn-primary" style="margin-top: 1%" type="submit">Register</button>
 </form>
 
 <script>
