@@ -39,7 +39,7 @@ namespace InvestOA.WebApp.Controllers
                 var userExists = await userManager.FindByNameAsync(username.First());
                 if (userExists != null)
                 {
-                    return StatusCode(StatusCodes.Status409Conflict);
+                    return View("Apology", new Apology { StatusCode = 409, Description = "User don't exist" });
                 }
 
                 User user = new()
@@ -53,7 +53,7 @@ namespace InvestOA.WebApp.Controllers
                 var result = await userManager.CreateAsync(user, model.Password);
                 if (!result.Succeeded)
                 {
-                    return StatusCode(StatusCodes.Status500InternalServerError);
+                    return View("Apology", new Apology { StatusCode = 500, Description = "Can't create user" });
                 }
 
                 var code = await userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -79,7 +79,7 @@ namespace InvestOA.WebApp.Controllers
                     }
                  */
             }
-            return BadRequest();
+            return View("Apology", new Apology { StatusCode = 400, Description = "Data is not valid" });
         }
 
         [AllowAnonymous]
@@ -101,7 +101,7 @@ namespace InvestOA.WebApp.Controllers
             var user = await userManager.FindByNameAsync(userName);
             if (user == null)
             {
-                return View("Error");
+                return View("Apology", new Apology { StatusCode = 409, Description = "User don't exist" });
             }
             var result = await userManager.ConfirmEmailAsync(user, code);
             if (result.Succeeded)
@@ -142,19 +142,19 @@ namespace InvestOA.WebApp.Controllers
                     var result = await signInManager.PasswordSignInAsync(user, model.Password, false, false);
                     if (result.Succeeded)
                     {
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("Index", "Portfolio");
                     }
                     else
                     {
-                        return BadRequest("Wrong email or password. Try again.");
+                        return View("Apology", new Apology { StatusCode = 400, Description = "Wrong email or password. Try again" });
                     }
                 }
                 else
                 {
-                    return BadRequest("Your account is not confirmed yet.");
+                    return View("Apology", new Apology { StatusCode = 400, Description = "Your account is not confirmed yet." });
                 }
             }
-            return RedirectToAction("Error");
+            return View("Apology", new Apology { StatusCode = 400, Description = "Data is not valid" });
         }
 
         [Authorize]

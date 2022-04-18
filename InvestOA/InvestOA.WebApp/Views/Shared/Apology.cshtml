@@ -1,0 +1,12 @@
+﻿@model InvestOA.WebApp.Models.Apology
+
+@{
+    ViewData["Title"] = "Apology";
+}
+
+@{var top = Model.StatusCode;}
+@{var bottom = Model.Description;}
+
+<div>
+    <img alt="@top" class="border" src="http://memegen.link/custom/@top/@(bottom + ".jpg")?alt=https://i.imgur.com/CsCgN7Ll.png" title="@top">
+</div>

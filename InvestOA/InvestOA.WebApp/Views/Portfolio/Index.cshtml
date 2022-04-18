@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Home";
+} <!-- ADD MODEL -->
+
+<form>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <th>{{ ttotal | usd }}</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>stock.symbol</td>
+                <td>stock.name</td>
+                <td>stock.shares</td>
+                <td>stock.price | usd</td>
+                <td>stock.total | usd</td>
+            </tr>
+            <tr>
+                <td cosplan="4">CASH</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>CASH | usd</td>
+            </tr>
+        </tbody>
+    </table>
+</form>
