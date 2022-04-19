@@ -1,4 +1,5 @@
-﻿@using Microsoft.AspNetCore.Identity
+﻿@using InvestOA.Core
+@using Microsoft.AspNetCore.Identity
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
@@ -18,13 +19,13 @@
 <body>
      <nav class="navbar navbar-expand-md navbar-light bg-light border navbar-toggleable-sm box-shadow mb-3">
         @if (SignInManager.IsSignedIn(User)){
-            <a class="navbar-brand" asp-area="" asp-controller="Portfolio" asp-action="Index"><span class="blue">I</span><span class="red">n</span><span class="yellow">v</span><span class="blue">e</span><span class="green">$</span><span class="yellow">t</span> <span class="red">OA</span></a>
+            <a class="navbar-brand" asp-area="" asp-controller="Portfolio" asp-action="Index"><span class="red">I</span><span class="orange">n</span><span class="yellow">v</span><span class="green">e</span><span class="sky-blue">$</span><span class="blue">t</span> <span class="purple">OA</span></a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
         }
         else{
-            <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Login"><span class="blue">I</span><span class="red">n</span><span class="yellow">v</span><span class="blue">e</span><span class="green">$</span><span class="yellow">t</span> <span class="red">OA</span></a>
+            <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Login"><span class="red">I</span><span class="orange">n</span><span class="yellow">v</span><span class="green">e</span><span class="sky-blue">$</span><span class="blue">t</span> <span class="purple">OA</span></a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -74,7 +75,7 @@
 
     <footer class="small text-center text-muted">
         <div class="container">
-            &copy; 2022 - InvestOA.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - InvestOA - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
             Data provided for free by <a href="https://iextrading.com/developer">IEX</a>. View <a href="https://iextrading.com/api-exhibit-a/">IEX’s Terms of Use</a>.
         </div>
     </footer>

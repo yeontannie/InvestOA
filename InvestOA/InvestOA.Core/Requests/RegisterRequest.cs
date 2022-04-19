@@ -1,4 +1,4 @@
-﻿namespace InvestOA.WebApp.Models.Requests
+﻿namespace InvestOA.Core.Requests
 {
     public class RegisterRequest
     {

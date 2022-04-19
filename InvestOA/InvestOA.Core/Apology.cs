@@ -1,4 +1,4 @@
-﻿namespace InvestOA.WebApp.Models
+﻿namespace InvestOA.Core
 {
     public class Apology
     {

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace InvestOA.WebApp.Migrations
+namespace InvestOA.Core.Migrations
 {
     public partial class initial : Migration
     {

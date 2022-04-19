@@ -1,8 +1,8 @@
 using FluentValidation.AspNetCore;
-using InvestOA.WebApp.Data;
-using InvestOA.WebApp.Models;
-using InvestOA.WebApp.Models.Validators;
-using InvestOA.WebApp.Services;
+using InvestOA.Core.Data;
+using InvestOA.Core;
+using InvestOA.Core.Validators;
+using InvestOA.Repositories.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

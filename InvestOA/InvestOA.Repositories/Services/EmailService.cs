@@ -1,8 +1,9 @@
 ﻿using MimeKit;
 using MailKit.Net.Smtp;
 using MimeKit.Text;
+using Microsoft.Extensions.Configuration;
 
-namespace InvestOA.WebApp.Services
+namespace InvestOA.Repositories.Services
 {
     public class EmailService
     {

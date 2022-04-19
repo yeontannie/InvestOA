@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace InvestOA.WebApp.Models
+namespace InvestOA.Core
 {
     public class History
     {

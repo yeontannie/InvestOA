@@ -1,6 +1,6 @@
-﻿using InvestOA.WebApp.Models;
-using InvestOA.WebApp.Models.Requests;
-using InvestOA.WebApp.Services;
+﻿using InvestOA.Core;
+using InvestOA.Core.Requests;
+using InvestOA.Repositories.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

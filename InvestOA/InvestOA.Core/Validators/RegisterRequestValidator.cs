@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
-using InvestOA.WebApp.Models.Requests;
+using InvestOA.Core.Requests;
 
-namespace InvestOA.WebApp.Models.Validators
+namespace InvestOA.Core.Validators
 {
     public class RegisterRequestValidator : AbstractValidator<RegisterRequest>
     {

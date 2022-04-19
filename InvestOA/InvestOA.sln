@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestOA.WebApp", "InvestOA.WebApp\InvestOA.WebApp.csproj", "{EFBBA29E-4F2F-4B7C-A45E-633DCD0B98DD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InvestOA.WebApp", "InvestOA.WebApp\InvestOA.WebApp.csproj", "{EFBBA29E-4F2F-4B7C-A45E-633DCD0B98DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestOA.Core", "InvestOA.Core\InvestOA.Core.csproj", "{AFF7F46E-E55C-4866-8522-3EB2F035D01A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvestOA.Repositories", "InvestOA.Repositories\InvestOA.Repositories.csproj", "{09B328AF-34B5-4E49-BE84-4399BBEB9C6E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{EFBBA29E-4F2F-4B7C-A45E-633DCD0B98DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFBBA29E-4F2F-4B7C-A45E-633DCD0B98DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFBBA29E-4F2F-4B7C-A45E-633DCD0B98DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFF7F46E-E55C-4866-8522-3EB2F035D01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFF7F46E-E55C-4866-8522-3EB2F035D01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFF7F46E-E55C-4866-8522-3EB2F035D01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFF7F46E-E55C-4866-8522-3EB2F035D01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B328AF-34B5-4E49-BE84-4399BBEB9C6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B328AF-34B5-4E49-BE84-4399BBEB9C6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B328AF-34B5-4E49-BE84-4399BBEB9C6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B328AF-34B5-4E49-BE84-4399BBEB9C6E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

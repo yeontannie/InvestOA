@@ -1,8 +1,7 @@
-﻿using InvestOA.WebApp.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvestOA.WebApp.Data
+namespace InvestOA.Core.Data
 {
     public class AppDbContext : IdentityDbContext<User>
     {
