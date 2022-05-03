@@ -1,7 +1,9 @@
-﻿@{
+﻿@model InvestOA.Core.Requests.QuoteRequest
+
+@{
     ViewData["Title"] = "Quoted";
 }
 
-<div> <!-- ADD MODEL -->
-    <p align="center">A share of name, symbol costs price.</p>
+<div>
+    <p align="center">A share of @Model.CompanyName, @Model.Symbol costs @Model.Price USD.</p>
 </div>

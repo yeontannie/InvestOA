@@ -5,6 +5,7 @@ using InvestOA.Core.Validators;
 using InvestOA.Repositories.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using InvestOA.Repositories;
 
 try
 {
@@ -30,7 +31,9 @@ try
     builder.Services.AddMvc()
         .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<RegisterRequestValidator>());
 
-    builder.Services.AddTransient<EmailService>();
+    builder.Services.AddScoped<EmailService>();
+    builder.Services.AddScoped<PortfolioRepository>();
+    builder.Services.AddScoped<HistoryRepository>();
 
     var app = builder.Build();
 

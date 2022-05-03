@@ -13,5 +13,6 @@ namespace InvestOA.Core
         public int Shares { get; set; }
         public double Price { get; set; }
         public DateTime TimeOfBuying { get; set; }
+        public string Username { get; set; }
     }
 }

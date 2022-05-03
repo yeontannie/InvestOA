@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<InvestOA.Core.History>
+
+@{
     ViewData["Title"] = "History";
 }
 
@@ -13,12 +15,18 @@
             </tr>
         </thead>
         <tbody>            
-            <tr>
-                <td>stock.symbol</td>
-                <td>stock.shares</td>
-                <td>stock.price | usd</td>
-                <td>stock.transaction</td>
-            </tr>            
+            @if (Model != null)
+            {
+                foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.Ticker</td>
+                        <td>@s.Shares</td>
+                        <td>@s.Price USD</td>
+                        <td>@s.TimeOfTransaction</td>
+                    </tr>
+                }
+            }        
         </tbody>
     </table>
 </form>

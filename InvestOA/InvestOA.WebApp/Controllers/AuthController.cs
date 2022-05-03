@@ -39,7 +39,7 @@ namespace InvestOA.WebApp.Controllers
                 var userExists = await userManager.FindByNameAsync(username.First());
                 if (userExists != null)
                 {
-                    return View("Apology", new Apology { StatusCode = 409, Description = "User don't exist" });
+                    return View("Apology", new Apology { StatusCode = 409, Description = "User already exists" });
                 }
 
                 User user = new()
