@@ -2,10 +2,10 @@ using FluentValidation.AspNetCore;
 using InvestOA.Core.Data;
 using InvestOA.Core;
 using InvestOA.Core.Validators;
-using InvestOA.Repositories.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using InvestOA.Repositories;
+using InvestOA.DataManager;
 
 try
 {
@@ -34,6 +34,7 @@ try
     builder.Services.AddScoped<EmailService>();
     builder.Services.AddScoped<PortfolioRepository>();
     builder.Services.AddScoped<HistoryRepository>();
+    builder.Services.AddScoped<MainActions>();
 
     var app = builder.Build();
 

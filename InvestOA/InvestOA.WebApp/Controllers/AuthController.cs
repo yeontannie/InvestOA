@@ -1,6 +1,6 @@
 ﻿using InvestOA.Core;
 using InvestOA.Core.Requests;
-using InvestOA.Repositories.Services;
+using InvestOA.DataManager;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

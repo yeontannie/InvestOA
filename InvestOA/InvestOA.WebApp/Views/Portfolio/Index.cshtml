@@ -1,6 +1,10 @@
-﻿@{
+﻿@model InvestOA.Core.Requests.IndexRequest
+
+@{
     ViewData["Title"] = "Home";
-} <!-- ADD MODEL -->
+}
+
+<meta http-equiv="refresh" content="60" />
 
 <form>
     <table class="table table-striped">
@@ -16,23 +20,26 @@
         <tfoot>
             <tr>
                 <td colspan="4"></td>
-                <th>{{ ttotal | usd }}</th>
+                <th>@Model.Total USD</th>
             </tr>
         </tfoot>
         <tbody>
-            <tr>
-                <td>stock.symbol</td>
-                <td>stock.name</td>
-                <td>stock.shares</td>
-                <td>stock.price | usd</td>
-                <td>stock.total | usd</td>
-            </tr>
+            @foreach(var s in Model.Stocks)
+            {
+                <tr>
+                    <td>@s["symbol"]</td>
+                    <td>@s["companyName"]</td>
+                    <td>@s["shares"]</td>
+                    <td>@s["price"] USD</td>
+                    <td>@s["total"] USD</td>
+                </tr>
+            }
             <tr>
                 <td cosplan="4">CASH</td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>CASH | usd</td>
+                <td>@Model.Cash USD</td>
             </tr>
         </tbody>
     </table>

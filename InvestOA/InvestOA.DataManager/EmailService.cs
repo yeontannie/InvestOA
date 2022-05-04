@@ -3,7 +3,7 @@ using MailKit.Net.Smtp;
 using MimeKit.Text;
 using Microsoft.Extensions.Configuration;
 
-namespace InvestOA.Repositories.Services
+namespace InvestOA.DataManager
 {
     public class EmailService
     {
