@@ -20,13 +20,13 @@
 <body>
      <nav class="navbar navbar-expand-md navbar-light bg-light border navbar-toggleable-sm box-shadow mb-3">
         @if (SignInManager.IsSignedIn(User)){
-            <a class="navbar-brand" asp-area="" asp-controller="Portfolio" asp-action="Index"><span class="red">I</span><span class="orange">n</span><span class="yellow">v</span><span class="green">e</span><span class="sky-blue">$</span><span class="blue">t</span> <span class="purple">OA</span></a>
+            <a class="navbar-brand" asp-area="" asp-controller="Portfolio" asp-action="Index"><img src="~/invest_ОА_logo.png" width="200"/></a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
         }
         else{
-            <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Login"><span class="red">I</span><span class="orange">n</span><span class="yellow">v</span><span class="green">e</span><span class="sky-blue">$</span><span class="blue">t</span> <span class="purple">OA</span></a>
+            <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="Login"> <img src="~/invest_ОА_logo.png" width="230" /></a>
             <button aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbar" data-toggle="collapse" type="button">
                 <span class="navbar-toggler-icon"></span>
             </button>
