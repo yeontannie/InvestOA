@@ -1,10 +1,17 @@
-﻿@{
+﻿@model IEnumerable<InvestOA.Core.Portfolio>
+
+@{
     ViewData["Title"] = "Sell";
 }
 
 <form asp-controller="Portfolio" asp-action="SellStock" method="post">
     <div class="form-group">
-        <input autocomplete="off" autofocus class="form-control" name="symbol" placeholder="Symbol" type="text">
+        <select class="form-control" name="symbol" style="width:207px">
+            @foreach(var m in Model)
+            {
+                <option value="@m.Ticker">@m.Ticker</option>
+            }                
+        </select>
     </div>
     <div class="form-group">
         <input class="form-control" name="shares" placeholder="Shares" type="number" min="1">

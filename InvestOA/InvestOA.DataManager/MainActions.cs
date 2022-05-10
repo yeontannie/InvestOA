@@ -119,7 +119,7 @@ namespace InvestOA.DataManager
 
             if (stock.Shares == 0)
             {
-                portfolioRepository.RemoveStock(stock);
+                await portfolioRepository.RemoveStock(stock);
             }
 
             user.Cash += price * shares;
@@ -154,7 +154,7 @@ namespace InvestOA.DataManager
                     var temp = new Dictionary<string, string>();
                     if (i.Shares == 0)
                     {
-                        portfolioRepository.RemoveStock(i);
+                        await portfolioRepository.RemoveStock(i);
                     }
                     else
                     {

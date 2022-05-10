@@ -3,6 +3,7 @@ using InvestOA.Core.Requests;
 using InvestOA.DataManager;
 using InvestOA.Repositories;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InvestOA.WebApp.Controllers
@@ -12,11 +13,16 @@ namespace InvestOA.WebApp.Controllers
     {
         private readonly MainActions mainActions;
         private readonly IHistoryRepository historyRepository;
+        private readonly IPortfolioRepository portfolioRepository;
+        private readonly SignInManager<User> signInManager;
 
-        public PortfolioController(MainActions main, HistoryRepository historyRepo)
+        public PortfolioController(MainActions main, HistoryRepository historyRepo,
+            PortfolioRepository portfolioRepo, SignInManager<User> signIn)
         {
             mainActions = main;
             historyRepository = historyRepo;
+            portfolioRepository = portfolioRepo;
+            signInManager = signIn;
         }
 
         [HttpGet]
@@ -96,7 +102,9 @@ namespace InvestOA.WebApp.Controllers
         [Route("sell")]
         public IActionResult Sell()
         {
-            return View();
+            var username = signInManager.Context.User.Identity.Name;
+            var stocks = portfolioRepository.PortfolioByUser(username);
+            return View(stocks);
         }
 
         [HttpPost]
@@ -121,7 +129,7 @@ namespace InvestOA.WebApp.Controllers
                         break;
                 }
             }
-            return View("Apology", new Apology { StatusCode = 400, Description = "must enter symbol and share quontity" });
+            return View("Apology", new Apology { StatusCode = 400, Description = "you don't have that many shares" });
         }
 
         [HttpGet]

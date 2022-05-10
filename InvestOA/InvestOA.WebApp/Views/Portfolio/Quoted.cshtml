@@ -4,7 +4,9 @@
     ViewData["Title"] = "Quoted";
 }
 
-<div style="margin-top:2%;margin-bottom:10%">
-    
+<div style="margin-top:2%">    
     <h5 align="center">A share of @Model.CompanyName, @Model.Symbol costs @Model.Price USD.</h5>
+</div>
+<div class="form-group">
+    <a class="btn btn-primary" asp-controller="Portfolio" asp-action="Buy">Buy Now!</a>
 </div>
