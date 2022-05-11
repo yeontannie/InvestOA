@@ -134,10 +134,18 @@ namespace InvestOA.WebApp.Controllers
 
         [HttpGet]
         [Route("history")]
-        public async Task<IActionResult> History()
+        public async Task<IActionResult> History(int page = 0)
         {
+            const int PageSize = 7;
             var response = historyRepository.GetHistory();
-            return View(response);
+            var count = response.Count();
+
+            var data = historyRepository.GetPaginated(page, PageSize);
+
+            ViewBag.MaxPage = (count / PageSize) - (count % PageSize == 0 ? 1 : 0);
+            ViewBag.Page = page;
+            
+            return View(data);
         }
     }
 }

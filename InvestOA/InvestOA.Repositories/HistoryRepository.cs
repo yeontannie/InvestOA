@@ -21,10 +21,16 @@ namespace InvestOA.Repositories
             await context.SaveChangesAsync();
         }
 
-        public IQueryable<History> GetHistory()
+        public IEnumerable<History> GetHistory()
         {
             var username = signInManager.Context.User.Identity.Name;
             return context.Histories.Where(x => x.Username == username);
+        }
+
+        public IEnumerable<History> GetPaginated(int page, int pageSize = 7)
+        {
+            var historyByUser = GetHistory().OrderBy(x => x.TimeOfTransaction).Reverse();
+            return historyByUser.Skip(page * pageSize).Take(pageSize).ToList();
         }
     }
 }
